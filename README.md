@@ -183,8 +183,6 @@ exclusão  | DELETE 	        | /tarefas/123.format 	| RecipesController::delete(
 A visualzação da aplicação está no endereço:
 [http://localhost/dotGroup/app](http://localhost/dotGroup/app) 
 
-
-
-       
+obs.: Apenas a listagem estava funcionando na SPA às 17h        
    
    
