@@ -140,7 +140,48 @@ class MyUserClass
         • Interface com drag and drop;
         • Interface responsiva (desktop e mobile);
 
+Após o git clone: 
 
-        
+1. de permissão de escrita para todos usuários: ``` chmod ugo+w app/tmp -R ``
+
+2. crie um database com nome: ```vaga_do_pericles```
+ 
+3. restaure o dump no mysql ```mysql -u root -p vaga_do_pericles < dump.sql```
+
+4. substitua as configurações de conexão no arquivo ```app/Config/database.php``` se necessário.
+valor default de conexão:
+```php
+public $default = array(
+	'datasource' => 'Database/Mysql',
+	'persistent' => false,
+	'host' => 'localhost',
+	'login' => 'root',
+	'password' => '1234',
+	'database' => 'vaga_do_pericles',
+	'prefix' => '',
+	//'encoding' => 'utf8',
+);
+```
+
+##### Endpoints da ApiREST
+
+Ações     | HTTP format     | URL format            | Controller action invoked
+--------- | --------------- | --------------------- | ------
+listagem  | GET 	        | /tarefas.format 	    | RecipesController::index()
+exibição  | GET 	        | /tarefas/123.format 	| RecipesController::view(123)
+inclusão  | POST 	        | /tarefas.format 	    | RecipesController::add()
+alteração | POST 	        | /tarefas/123.format 	| RecipesController::edit(123)
+alteração | PUT 	        | /tarefas/123.format 	| RecipesController::edit(123)
+exclusão  | DELETE 	        | /tarefas/123.format 	| RecipesController::delete(123)
+
+```.format``` define resultado desejado (por exemplo, .xml, .json, .rss). Essas rotas são sensíveis ao método de solicitação HTTP.
+
+##### Single page aplication
+
+A visualzação da aplicação está no caminho ```localhost/dotGroup/app``` 
+
+
+
+       
    
    
