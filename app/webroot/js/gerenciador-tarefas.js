@@ -28,7 +28,7 @@ Vue.component('gerenciador-tarefas', {
     },
     mounted() {
         axios
-            .get('http://localhost/cakephp/tarefas.json')
+            .get('http://localhost/dotGroup/tarefas.json')
             .then(response => (this.tarefas = response.data.tarefas));
     },
     methods: {}
