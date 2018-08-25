@@ -1,0 +1,1 @@
+<?php echo implode('<br>' . PHP_EOL, $range);
