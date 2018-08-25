@@ -72,7 +72,7 @@ class DATABASE_CONFIG {
 		'host' => 'localhost',
 		'login' => 'root',
 		'password' => '1234',
-		'database' => 'cake',
+		'database' => 'vaga_do_pericles',
 		'prefix' => '',
 		//'encoding' => 'utf8',
 	);
