@@ -1,0 +1,77 @@
+2018-08-24 23:32:15 Error: [MissingControllerException] Controller class Rfc1.phpController could not be found.
+Exception Attributes: array (
+  'class' => 'Rfc1.phpController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/rfc1.php
+Stack Trace:
+#0 /var/www/html/cakephp/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}
+2018-08-25 03:04:54 Error: [MissingViewException] View file "Tarefas/index.ctp" is missing.
+Exception Attributes: array (
+  'file' => 'Tarefas/index.ctp',
+)
+Request URL: /cakephp/tarefas
+Stack Trace:
+#0 /var/www/html/cakephp/lib/Cake/View/View.php(470): View->_getViewFileName(NULL)
+#1 /var/www/html/cakephp/lib/Cake/Controller/Controller.php(963): View->render(NULL, NULL)
+#2 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(200): Controller->render()
+#3 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(TarefasController), Object(CakeRequest))
+#4 /var/www/html/cakephp/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#5 {main}
+2018-08-25 03:34:42 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/cakephp/app/Controller/TarefasController.php, line 16]
+2018-08-25 03:34:42 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /cakephp/tarefas/3.json
+Stack Trace:
+#0 /var/www/html/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/c...', 16)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/c...', 16, Array)
+#2 /var/www/html/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/c...', 16, Array)
+#3 /var/www/html/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-08-25 03:35:20 Error: Fatal Error (4): syntax error, unexpected ';' in [/var/www/html/cakephp/app/Controller/TarefasController.php, line 17]
+2018-08-25 03:35:20 Error: [FatalErrorException] syntax error, unexpected ';'
+Request URL: /cakephp/tarefas/3.json
+Stack Trace:
+#0 /var/www/html/cakephp/lib/Cake/Error/ErrorHandler.php(212): ErrorHandler::handleFatalError(4, 'syntax error, u...', '/var/www/html/c...', 17)
+#1 [internal function]: ErrorHandler::handleError(4, 'syntax error, u...', '/var/www/html/c...', 17, Array)
+#2 /var/www/html/cakephp/lib/Cake/Core/App.php(970): call_user_func('ErrorHandler::h...', 4, 'syntax error, u...', '/var/www/html/c...', 17, Array)
+#3 /var/www/html/cakephp/lib/Cake/Core/App.php(943): App::_checkFatalError()
+#4 [internal function]: App::shutdown()
+#5 {main}
+2018-08-25 03:36:36 Error: [PDOException] SQLSTATE[42S22]: Column not found: 1054 Unknown column 'tarefas.ordem' in 'order clause'
+Request URL: /cakephp/tarefas.json
+Stack Trace:
+#0 /var/www/html/cakephp/lib/Cake/Model/Datasource/DboSource.php(472): PDOStatement->execute(Array)
+#1 /var/www/html/cakephp/lib/Cake/Model/Datasource/DboSource.php(438): DboSource->_execute('SELECT `Tarefa`...', Array)
+#2 /var/www/html/cakephp/lib/Cake/Model/Datasource/DboSource.php(675): DboSource->execute('SELECT `Tarefa`...', Array, Array)
+#3 /var/www/html/cakephp/lib/Cake/Model/Datasource/DboSource.php(1186): DboSource->fetchAll('SELECT `Tarefa`...', false)
+#4 /var/www/html/cakephp/lib/Cake/Model/Model.php(3040): DboSource->read(Object(Tarefa), Array)
+#5 /var/www/html/cakephp/lib/Cake/Model/Model.php(3012): Model->_readDataSource('all', Array)
+#6 /var/www/html/cakephp/app/Controller/TarefasController.php(17): Model->find('all', Array)
+#7 [internal function]: TarefasController->index()
+#8 /var/www/html/cakephp/lib/Cake/Controller/Controller.php(491): ReflectionMethod->invokeArgs(Object(TarefasController), Array)
+#9 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#10 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(TarefasController), Object(CakeRequest))
+#11 /var/www/html/cakephp/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#12 {main}
+2018-08-25 10:57:50 Error: [MissingActionException] Action AppController::tmp() could not be found.
+Exception Attributes: array (
+  'controller' => 'AppController',
+  'action' => 'tmp',
+)
+Request URL: /cakephp/app/tmp/cache/models/myapp_cake_model_default_cake_list
+Stack Trace:
+#0 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(193): Controller->invokeAction(Object(CakeRequest))
+#1 /var/www/html/cakephp/lib/Cake/Routing/Dispatcher.php(167): Dispatcher->_invoke(Object(AppController), Object(CakeRequest))
+#2 /var/www/html/cakephp/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#3 {main}
+2018-08-25 10:57:56 Error: [MissingControllerException] Controller class TmpController could not be found.
+Exception Attributes: array (
+  'class' => 'TmpController',
+  'plugin' => NULL,
+)
+Request URL: /cakephp/tmp/cache/models/myapp_cake_model_default_cake_list
+Stack Trace:
+#0 /var/www/html/cakephp/app/webroot/index.php(118): Dispatcher->dispatch(Object(CakeRequest), Object(CakeResponse))
+#1 {main}

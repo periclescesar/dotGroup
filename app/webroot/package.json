@@ -1,0 +1,11 @@
+{
+  "name": "webroot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "/js/index.js",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "vue": "^2.5.17"
+  }
+}
