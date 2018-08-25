@@ -7,8 +7,13 @@
   "license": "ISC",
   "dependencies": {
     "axios": "^0.18.0",
-    "require-vuejs": "^1.1.1",
+    "bootstrap-vue": "^2.0.0-rc.11",
+    "requirejs": "^2.3.5",
+    "requirejs-vue": "^1.1.5",
     "vue": "^2.5.17",
     "vuex": "^3.0.1"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1"
   }
 }

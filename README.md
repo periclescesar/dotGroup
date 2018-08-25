@@ -1,48 +1,146 @@
-# CakePHP
+#Questões
+1. ##### Escreva um programa que imprima números de 1 a 100. Mas, para múltiplos de 3 imprima“Fizz” em vez do número e para múltiplos de 5 imprima “Buzz”. Para números múltiplos de ambos (3 e 5), imprima “FizzBuzz”.
+   
+   Código executavel está em: ```questoes/FizzBuzz.php```
+   podendo ser executado via comand line: ```php questoes/FizzBuzz.php ``` 
+   ou 
+   pela url: ``` http://localhost/cakephp/questoes/fizzBuzz ```
+   
+2. #####Refatore o código abaixo, fazendo as alterações que julgar necessário.
 
-[![Latest Stable Version](https://poser.pugx.org/cakephp/cakephp/v/stable.svg)](https://packagist.org/packages/cakephp/cakephp)
-[![License](https://poser.pugx.org/cakephp/cakephp/license.svg)](https://packagist.org/packages/cakephp/cakephp)
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](https://travis-ci.org/cakephp/cakephp)
-[![Code consistency](https://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/grade.svg)](https://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/)
+código anterior:
+```php
+ <?
+ 
+ if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true) {
+    header("Location: http://www.google.com");
+    exit();
+ } elseif (isset($_COOKIE['Loggedin']) && $_COOKIE['Loggedin'] == true) {
+    header("Location: http://www.google.com");
+    exit();
+ }
+```
 
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
+refatorado (/questoes/refc1.php):
+
+```php
+<?php
+
+session_start();
+
+function isSessionLoggedin()
+{
+    return isset($_SESSION['loggedin']) && $_SESSION['loggedin'] == true;
+}
+
+function isCookieLoggedin()
+{
+    return isset($_COOKIE['loggedin']) && $_COOKIE['loggedin'] == true;
+}
+
+function isLoggedin()
+{
+    return isSessionLoggedin() || isCookieLoggedin();
+}
+
+if (isLoggedin()) {
+    header("Location: http://www.google.com");
+    exit();
+}
+```
+3. #####Refatore o código abaixo, fazendo as alterações que julgar necessário.
+
+```php
+<?php
+
+ class MyUserClass
+ {
+     public function getUserList()
+     {
+        $dbconn = new DatabaseConnection('localhost','user','password');
+        $results = $dbconn->query('select name from user');
+    
+        sort($results);
+        return $results;
+     }
+}
+
+```
+refatorado (/questoes/refc2.php):
+
+```php
+<?php
+
+class MyDefaultConn
+{
+    /** @var DatabaseConnection */
+    private static $conn;
+    private static $host = 'localhost';
+    private static $user = 'root';
+    private static $pass = '1234';
 
 
-## Some Handy Links
+    /**
+     * @return DatabaseConnection
+     */
+    public static function getInstance()
+    {
+        if (self::$conn === null) {
+            self::$conn = new DatabaseConnection(self::$host, self::$user, self::$pass);
+        }
 
-[CakePHP](https://cakephp.org) - The rapid development PHP framework
+        return self::$conn;
+    }
+}
 
-[CookBook](https://book.cakephp.org) - THE CakePHP user documentation; start learning here!
+class MyUserClass
+{
+    /** @var DatabaseConnection */
+    private $dbconn;
 
-[API](https://api.cakephp.org) - A reference to CakePHP's classes
-
-[Plugins](https://plugins.cakephp.org) - A repository of extensions to the framework
-
-[The Bakery](https://bakery.cakephp.org) - Tips, tutorials and articles
-
-[Community Center](https://community.cakephp.org) - A source for everything community related
-
-[Training](https://training.cakephp.org) - Join a live session and get skilled with the framework
-
-[CakeFest](https://cakefest.org) - Don't miss our annual CakePHP conference
-
-[Cake Software Foundation](https://cakefoundation.org) - Promoting development related to CakePHP
-
-
-## Get Support!
-
-[#cakephp](https://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake
-
-[Google Group](https://groups.google.com/group/cake-php) - Community mailing list and forum
-
-[GitHub Issues](https://github.com/cakephp/cakephp/issues) - Got issues? Please tell us!
-
-[Roadmaps](https://github.com/cakephp/cakephp/wiki#roadmaps) - Want to contribute? Get involved!
+    /**
+     * MyUserClass constructor.
+     * @param null|DatabaseConnection $conn
+     */
+    public function __construct($conn = null)
+    {
+        if (is_a($conn, 'DatabaseConnection')) {
+            $this->dbconn = $conn;
+        } else {
+            $this->dbconn = MyDefaultConn::getInstance();
+        }
+    }
 
 
-## Contributing
+    /**
+     * @return array
+     * @throws Exception
+     */
+    public function getUserList()
+    {
+        $userNameList = $this->dbconn->query('select name from user');
 
-[CONTRIBUTING.md](CONTRIBUTING.md) - Quick pointers for contributing to the CakePHP project
+        if (!is_array($userNameList)) {
+            throw new Exception("Nenhum user foi encontrado!", 404);
+        }
 
-[CookBook "Contributing" Section (2.x)](https://book.cakephp.org/2.0/en/contributing.html) [(3.x)](https://book.cakephp.org/3.0/en/contributing.html) - Version-specific details about contributing to the project
+        sort($userNameList);
+
+        return $userNameList;
+    }
+}
+```
+
+4. #### Desenvolva uma API Rest para um sistema gerenciador de tarefas (inclusão/alteração/exclusão). As tarefas consistem em título e descrição, ordenadas por prioridade.
+        Desenvolver utilizando:
+        • Linguagem PHP (ou framework CakePHP);
+        • Banco de dados MySQL;
+        Diferenciais:
+        • Criação de interface para visualização da lista de tarefas;
+        • Interface com drag and drop;
+        • Interface responsiva (desktop e mobile);
+
+
+        
+   
+   
