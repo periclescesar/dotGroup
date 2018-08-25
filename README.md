@@ -142,7 +142,7 @@ class MyUserClass
 
 Após o git clone: 
 
-1. de permissão de escrita para todos usuários: ``` chmod ugo+w app/tmp -R ``
+1. de permissão de escrita para todos usuários: ``` chmod ugo+w app/tmp -R ```
 
 2. crie um database com nome: ```vaga_do_pericles```
  
@@ -164,6 +164,8 @@ public $default = array(
 ```
 
 ##### Endpoints da ApiREST
+endereço:
+[http://localhost/dotGroup/tarefas](http://localhost/dotGroup/tarefas)
 
 Ações     | HTTP format     | URL format            | Controller action invoked
 --------- | --------------- | --------------------- | ------
@@ -176,9 +178,10 @@ exclusão  | DELETE 	        | /tarefas/123.format 	| RecipesController::delete(
 
 ```.format``` define resultado desejado (por exemplo, .xml, .json, .rss). Essas rotas são sensíveis ao método de solicitação HTTP.
 
-##### Single page aplication
+##### Single page aplication (Vue.js)
 
-A visualzação da aplicação está no caminho ```localhost/dotGroup/app``` 
+A visualzação da aplicação está no endereço:
+[http://localhost/dotGroup/app](http://localhost/dotGroup/app) 
 
 
 
